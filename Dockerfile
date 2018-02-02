@@ -20,6 +20,7 @@ RUN chmod +x dashboard-gitlab
 FROM alpine:latest
 WORKDIR /root/
 COPY test.json /tmp
+RUN apk add --update libcurl
 COPY --from=0 /root/frontend frontend
-COPY --from=1 /usr/local/go/src/github.com/rdesousa/dashboard-gitlab/dashboard-gitlab ./dashboard-gitlab
+COPY --from=1 /usr/local/go/src/github.com/rdesousa/dashboard-gitlab/dashboard-gitlab .
 CMD ./dashboard-gitlab
