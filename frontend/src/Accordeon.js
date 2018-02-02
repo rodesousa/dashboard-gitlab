@@ -15,7 +15,7 @@ class Accordeon extends Component {
   majState(){
 
     fetch(
-      'http://localhost:8080/merge_request/all')
+      '/merge_request/all')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
